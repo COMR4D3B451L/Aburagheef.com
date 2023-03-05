@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,200,0,-25" />
 </head>
 
-<body x-data="globalMethods()" class="bg-slate-200 sm:bg-cover">
+<body x-data="globalMethods()" class="bg-slate-200 overflow-hidden">
     <div class="relative flex flex-wrap sm:mx-20 sm:my-20">
       <div id="cmd-container" x-init="index(), dragWindow($el)" class="resizeable flex flex-wrap w-5/6 sm:w-2/3 h-[70vh] min-h-[20vh] min-w-[40vh] rounded-md border border-slate-600">
         <div class="resizeable-handle h-2 absolute bottom-0 right-0 w-2 cursor-se-resize"></div>

@@ -1,49 +1,50 @@
 function globalMethods() {
   return {
-    enterLine(text) {
+    enterLine(text, history) {
         const inputHistory = document.getElementById("input-history");
         const input = document.querySelector("input");
         const newElement = document.createElement("div");
-        const ansElement = document.createElement("div");
-        const fragment = document.createDocumentFragment();
+        var ansElement = document.createElement("div");
+        var fragment = document.createDocumentFragment();
         const cursorWidth = 0;
       
         newElement.innerHTML = `C:\\Users\\basil>${text}`;
         fragment.appendChild(ansElement);
 
-        function getCommand(cmd) {
+        function getCommand(text) {
             const br = document.createElement("br");
-            ansElement.innerHTML = cmd;
+            htmx.ajax('GET', '/commands.html',  ansElement).then(() => {
+              cmdId = text.replace(/\s/g, '');
+              const command = document.getElementById(cmdId)
+              if (!command) {
+                const br = document.createElement("br");
+                const error = `'${text}' is not recognized as an internal or external command.`;
+                ansElement.innerHTML = error;
+              } else {
+                ansElement.innerHTML = command.innerHTML
+              }
+              
+            });
             fragment.appendChild(ansElement);
             fragment.appendChild(br);
         }
       
         if (!text) {
             inputHistory.appendChild(newElement);
-          } else {
+          } else {        
             inputHistory.appendChild(newElement);
             switch (text) {
-              case "about":
-                getCommand('Test');
-                break;
-              case "contact":
-                getCommand('info');
-                break;
-              case "help":
-                getCommand('Coming Soon');
+              case "clear":
+                inputHistory.innerHTML = '';
                 break;
               default:
-                const br = document.createElement("br");
-                const error = `'${text}' is not recognized as an internal or external command.`;
-                ansElement.innerHTML = error;
-                fragment.appendChild(newElement);
-                fragment.appendChild(ansElement);
-                fragment.appendChild(br);
+                getCommand(text);
                 break;
             }
             inputHistory.appendChild(fragment);
           }
         input.style.width = `${cursorWidth}ch`;
+        history.push(text)
       },      
 
     index() {
@@ -79,6 +80,8 @@ function globalMethods() {
           cursor_caret.classList.toggle("opacity-0");
         }
       };
+      
+
     },
     dragWindow(el) {
         dragElement(el);
@@ -161,6 +164,22 @@ function globalMethods() {
             el.classList.toggle("hidden");
             }, 500);
           });
+    },
+    historyNav(items, text) {
+      var selectedItemIndex = -1;
+      var input = document.getElementById("my-Input");
+      document.addEventListener('keydown', function (event) {
+        // Check if the ArrowUp or ArrowDown key was pressed
+        if (event.code === 'ArrowUp') {
+          // Move the selection up one item, wrapping around to the last item if at the beginning
+          selectedItemIndex = selectedItemIndex <= 0 ? items.length - 1 : selectedItemIndex - 1;
+          text = items[selectedItemIndex]
+        } else if (event.code === 'ArrowDown') {
+          // Move the selection down one item, wrapping around to the first item if at the end
+          selectedItemIndex = selectedItemIndex >= items.length - 1 ? 0 : selectedItemIndex + 1;
+          text = items[selectedItemIndex]
+        }
+      });
     }
   };
 }

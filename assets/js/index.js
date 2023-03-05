@@ -19,7 +19,7 @@ function globalMethods() {
         function getCommand(text) {
             const br = document.createElement("br");
             htmx.ajax('GET', '/commands.html',  ansElement).then(() => {
-              cmdId = text.replace(/\s/g, '');
+              cmdId = text.replace(/\s/g, '').toLowerCase();
               const command = document.getElementById(cmdId)
               if (!command) {
                 const br = document.createElement("br");

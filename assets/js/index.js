@@ -212,6 +212,9 @@ function globalMethods() {
         elem.style.margin = "5rem";
       }
     },
-
+    scrollToBottom() {
+      const cmdBody = document.getElementById("main-cmd-body")
+      cmdBody.scrollTop = cmdBody.scrollHeight;
+    }
   };
 }

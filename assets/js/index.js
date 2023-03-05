@@ -196,9 +196,19 @@ function globalMethods() {
     focusInput(el) {
       inp = document.getElementById("my-Input").focus();
     },
-    scrollToBottom() {
-      const cmdBody = document.getElementById("main-cmd-body")
-      cmdBody.scrollTop = cmdBody.scrollHeight;
-    }
+    maximizeScreen(maximized) {
+      var elem = document.getElementById("cmd-container");
+      if (maximized === false) {
+        elem.style.width = window.innerWidth + "px";
+        elem.style.height = window.innerHeight + "px";
+        elem.style.margin = "-5rem";
+      } 
+      if (maximized === true) {
+        elem.style.width = 75 + "%";
+        elem.style.height = 600 + "px";
+        elem.style.margin = "5rem";
+      }
+    },
+
   };
 }

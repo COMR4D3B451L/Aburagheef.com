@@ -46,7 +46,7 @@
             </div>
           </div>        
         </div>
-        <div id="main-cmd-body" x-data="{text: '', show: false, history: [], currentIndex: -1}" class="w-full bg-[#0c0c0c] rounded-b-md overflow-y-scroll" style="height: calc(100% - 2rem);" @click="focusInput('#my-Input')">
+        <div id="main-cmd-body" x-data="{text: '', show: false, history: [], currentIndex: -1}" class="w-full bg-[#0c0c0c] rounded-b-md overflow-y-scroll" style="height: calc(100% - 2rem);" @click="focusInput('my-Input')">
           <div class="mx-1 text-gray-200 text-sm selection:bg-white selection:text-black" style="font-family: Consolas,monaco,monospace;">
             <p>Portfolio Website [Version 1995.69.1337]</p>
             <p>(c) Basil Aburagheef. All rights reserved.</p>
@@ -56,7 +56,7 @@
             <div id="input-div">
               <div id="input-history"></div>
               <span x-show="show" x-text="text"></span>
-              <p>C:\Users\basil><input type="text" x-on:keydown.enter="enterLine(text, history), text = ''" x-on:keyup.enter="scrollToBottom()" id="my-Input" x-model="text" class="bg-[#0c0c0c] focus:outline-none caret-transparent" x-on:keydown.arrow-up="currentIndex = Math.max(currentIndex + 1, history.length - 1); text = history[currentIndex] || ''" x-on:keydown.arrow-down="currentIndex = Math.min(currentIndex - 1, -1); text = history[currentIndex] || ''" x-ref="input" x-init="focusInput($el)"></input><span id="cursor-caret" class="text-xs blink" x-init="cursorCaretBlink($el)" @click="focusInput('#my-Input')">▃</span></p>
+              <p>C:\Users\basil><input type="text" x-on:keydown.enter="enterLine(text, history), text = ''" x-on:keyup.enter="scrollToBottom()" id="my-Input" x-model="text" class="bg-[#0c0c0c] focus:outline-none caret-transparent" x-on:keydown.arrow-up="currentIndex = Math.max(currentIndex + 1, history.length - 1); text = history[currentIndex] || ''" x-on:keydown.arrow-down="currentIndex = Math.min(currentIndex - 1, -1); text = history[currentIndex] || ''" x-ref="input" x-init="focusInput('my-input')"></input><span id="cursor-caret" class="text-xs blink" x-init="cursorCaretBlink($el)" @click="focusInput('my-Input')">▃</span></p>
             </div>
           </div>
         </div>

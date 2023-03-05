@@ -188,8 +188,7 @@ function globalMethods() {
       });
     },
     focusInput(el) {
-      inp = document.getElementById("el")
-      inp.focus();
+      inp = document.getElementById("my-Input").focus();
     },
     scrollToBottom() {
       const cmdBody = document.getElementById("main-cmd-body")

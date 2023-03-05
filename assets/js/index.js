@@ -42,6 +42,12 @@ function globalMethods() {
               case "clear":
                 inputHistory.innerHTML = '';
                 break;
+              case "cd mirage":
+                window.open('https://miragesys.se', '_blank');
+                break;
+              case "cd github":
+                window.open('https://github.com/COMR4D3B451L', '_blank');
+                break;
               default:
                 getCommand(text);
                 break;

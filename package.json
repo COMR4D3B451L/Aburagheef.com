@@ -6,6 +6,7 @@
   "dependencies": {
     "alpinejs": "^3.11.1",
     "htmx": "^0.0.2",
-    "htmx.org": "^1.8.6"
+    "htmx.org": "^1.8.6",
+    "material-symbols": "^0.4.6"
   }
 }

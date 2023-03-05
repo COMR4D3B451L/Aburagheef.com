@@ -6,3 +6,11 @@
 #cmd-container-header {
     z-index: 9;
 }
+
+body {
+    background-image: url("/assets/img/winbg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }

@@ -189,6 +189,10 @@ function globalMethods() {
     },
     focusInput(el) {
       el.focus();
+    },
+    scrollToBottom() {
+      const cmdBody = document.getElementById("main-cmd-body")
+      cmdBody.scrollTop = cmdBody.scrollHeight;
     }
   };
 }

@@ -1,0 +1,8 @@
+#cmd-container {
+    position: absolute;
+    z-index: 10;
+}
+
+#cmd-container-header {
+    z-index: 9;
+}

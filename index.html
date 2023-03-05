@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Basil Aburagheef - Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Welcome to my portfolio website" />
+<link rel="icon" type="image/ico" href="assets/img/favicon.ico">
+  <script src="/assets/js/index.js"></script>
+  <link href="/assets/css/styles.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,200,0,-25" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet">
+</head>
+
+<body x-data="globalMethods()" class="bg-slate-200 sm:bg-cover" style="background-image: url(/assets/img/winbg.jpg)">
+    <div class="relative flex flex-wrap sm:mx-20 sm:my-20">
+      <div id="cmd-container" x-init="index(), dragWindow($el)" class="resizeable flex flex-wrap w-5/6 sm:w-2/3 h-[70vh] min-h-[20vh] min-w-[40vh] rounded-md border border-slate-600">
+        <div class="resizeable-handle h-2 absolute bottom-0 right-0 w-2 cursor-se-resize"></div>
+        <div id="cmd-container-header" class="flex bg-[#202020] opacity-95 w-full h-8 rounded-t-md select-none">
+          <img draggable="false" class="ml-2 my-auto" src="/assets/img/cmd.jpg" alt="cmd">
+          <div class="my-auto ml-2 text-white text-sm">Command Prompt</div>
+          <div class="flex ml-auto ">
+            <div class="text-white transition duration-200 hover:bg-white hover:bg-opacity-20 w-12 h-full">
+              <div class="mx-3">
+                <span class="material-symbols-outlined">
+                  chrome_minimize
+                </span>
+              </div>
+            </div>
+            <div class="text-white transition duration-200 hover:bg-white hover:bg-opacity-20 w-12 h-full">
+              <div class="my-1 mx-2.5 ">
+                <span class="material-symbols-outlined">
+                  chrome_maximize
+                </span>
+              </div>
+              
+            </div>
+            <div class="text-white transition duration-200 hover:bg-red-600 hover:bg-opacity-100 w-12 h-full rounded-tr-md">
+              <div class="my-1 mx-2.5 ">
+                <span class="material-symbols-outlined">
+                  close
+                  </span>
+              </div>
+            </div>
+          </div>        
+        </div>
+        <div id="main-cmd-body" x-data="{text: '', show: false}" class="w-full bg-[#0c0c0c] rounded-b-md overflow-y-scroll" style="height: calc(100% - 2rem);">
+          <div class="mx-1 text-gray-200 text-sm selection:bg-white selection:text-black" style="font-family: Consolas,monaco,monospace;">
+            <p>Portfolio Website [Version 1995.69.1337]</p>
+            <p>(c) Basil Aburagheef. All rights reserved.</p>
+            <br>
+            <p>Type "help", "contact" or "about" for more information.</p>
+            <br>
+            <div id="input-div">
+              <div id="input-history"></div>
+              <span x-show="show" x-text="text"></span>
+              <p>C:\Users\basil><input type="text" x-on:keydown.enter="enterLine(text), text = ''" id="my-Input" x-model="text" class="bg-[#0c0c0c] focus:outline-none caret-transparent"></input><span id="cursor-caret" class="text-xs blink" x-init="cursorCaretBlink($el)">▃</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

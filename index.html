@@ -46,7 +46,7 @@
             </div>
           </div>        
         </div>
-        <div id="main-cmd-body" x-data="{text: '', show: false, history: [], currentIndex: -1}" class="w-full bg-[#0c0c0c] rounded-b-md overflow-y-scroll" style="height: calc(100% - 2rem);">
+        <div id="main-cmd-body" x-data="{text: '', show: false, history: [], currentIndex: -1}" class="w-full bg-[#0c0c0c] rounded-b-md overflow-y-scroll" style="height: calc(100% - 2rem);" @click="focusInput('#my-Input')">
           <div class="mx-1 text-gray-200 text-sm selection:bg-white selection:text-black" style="font-family: Consolas,monaco,monospace;">
             <p>Portfolio Website [Version 1995.69.1337]</p>
             <p>(c) Basil Aburagheef. All rights reserved.</p>

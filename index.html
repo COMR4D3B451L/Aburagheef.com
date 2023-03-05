@@ -56,7 +56,7 @@
             <div id="input-div">
               <div id="input-history"></div>
               <span x-show="show" x-text="text"></span>
-              <p>C:\Users\basil><input type="text" x-on:keydown.enter="$dispatch('enteredCommand'), enterLine(text, history), text = ''" id="my-Input" x-model="text" class="bg-[#0c0c0c] focus:outline-none caret-transparent" x-on:keydown.arrow-up="currentIndex = Math.max(currentIndex + 1, history.length - 1); text = history[currentIndex] || ''" x-on:keydown.arrow-down="currentIndex = Math.min(currentIndex - 1, -1); text = history[currentIndex] || ''" x-ref="input"></input><span id="cursor-caret" class="text-xs blink" x-init="cursorCaretBlink($el)">▃</span></p>
+              <p>C:\Users\basil><input type="text" x-on:keydown.enter="$dispatch('enteredCommand'), enterLine(text, history), text = ''" id="my-Input" x-model="text" class="bg-[#0c0c0c] focus:outline-none caret-transparent" x-on:keydown.arrow-up="currentIndex = Math.max(currentIndex + 1, history.length - 1); text = history[currentIndex] || ''" x-on:keydown.arrow-down="currentIndex = Math.min(currentIndex - 1, -1); text = history[currentIndex] || ''" x-ref="input" x-init="(focusInput($el))"></input><span id="cursor-caret" class="text-xs blink" x-init="cursorCaretBlink($el)">▃</span></p>
             </div>
           </div>
         </div>

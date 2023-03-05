@@ -186,6 +186,9 @@ function globalMethods() {
           text = items[selectedItemIndex]
         }
       });
+    },
+    focusInput(el) {
+      el.focus();
     }
   };
 }

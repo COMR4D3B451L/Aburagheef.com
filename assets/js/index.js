@@ -1,6 +1,7 @@
 function globalMethods() {
   return {
     enterLine(text, history) {
+        const cmdBody = document.getElementById("main-cmd-body")
         const inputHistory = document.getElementById("input-history");
         const input = document.querySelector("input");
         const newElement = document.createElement("div");
@@ -10,6 +11,10 @@ function globalMethods() {
       
         newElement.innerHTML = `C:\\Users\\basil>${text}`;
         fragment.appendChild(ansElement);
+
+        function scrollToBottom() {
+          cmdBody.scrollTop = cmdBody.scrollHeight;
+        }
 
         function getCommand(text) {
             const br = document.createElement("br");
@@ -44,16 +49,17 @@ function globalMethods() {
             inputHistory.appendChild(fragment);
           }
         input.style.width = `${cursorWidth}ch`;
+        scrollToBottom()
         history.push(text)
       },      
 
     index() {
-      window.addEventListener("load", function () {
-        document.querySelector("input").style.width = 0 + "ch";
-      });
-
       var input = document.getElementById("my-Input");
       var cursor_caret = document.getElementById("cursor-caret");
+      window.addEventListener("load", function () {
+        document.querySelector("input").style.width = 0 + "ch";
+        input.focus();
+      });
 
       input.focus();
       input.select();

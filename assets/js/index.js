@@ -95,7 +95,10 @@ function globalMethods() {
       
 
     },
-    dragWindow(el) {
+    dragWindow(el, drag) {
+        if (drag === false) {
+          return;
+        }
         dragElement(el);
         function dragElement(elmnt) {
         var pos1 = 0,

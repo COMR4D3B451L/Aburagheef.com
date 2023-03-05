@@ -16,7 +16,7 @@
 
 <body x-data="globalMethods()" class="bg-slate-200 overflow-hidden">
     <div class="relative flex flex-wrap sm:mx-20 sm:my-20">
-      <div x-data="{maximized: false}" id="cmd-container" x-init="index(), dragWindow($el)" class="resizeable flex flex-wrap w-5/6 sm:w-2/3 h-[70vh] min-h-[20vh] min-w-[40vh] rounded-md border border-slate-600">
+      <div x-data="{maximized: false, drag: true}" id="cmd-container" x-init="index(), dragWindow($el, drag)" class="resizeable flex flex-wrap w-5/6 sm:w-2/3 h-[70vh] min-h-[20vh] min-w-[40vh] rounded-md border border-slate-600">
         <div class="resizeable-handle h-2 absolute bottom-0 right-0 w-2 cursor-se-resize"></div>
         <div id="cmd-container-header" class="flex bg-[#202020] opacity-95 w-full h-8 rounded-t-md select-none">
           <img draggable="false" class="ml-2 my-auto" src="/assets/img/cmd.jpg" alt="cmd">
@@ -29,7 +29,7 @@
                 </span>
               </div>
             </div>
-            <div @click="maximizeScreen(maximized), maximized = ! maximized" class="text-gray-300 hover:text-white transition duration-200 hover:bg-white hover:bg-opacity-20 w-12 h-full">
+            <div @click="maximized=!maximized, drag=!drag" class="text-gray-300 hover:text-white transition duration-200 hover:bg-white hover:bg-opacity-20 w-12 h-full">
               <div class="my-1 mx-2.5 ">
                 <span class="transition duration-200 material-symbols-outlined">
                   chrome_maximize

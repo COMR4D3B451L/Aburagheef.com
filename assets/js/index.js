@@ -96,6 +96,7 @@ function globalMethods() {
 
     },
     dragWindow(el, drag) {
+      children = el.children
         if (drag === false) {
           return;
         }
@@ -105,9 +106,9 @@ function globalMethods() {
             pos2 = 0,
             pos3 = 0,
             pos4 = 0;
-        if (document.getElementById("cmd-container-header")) {
+        if (children[1]) {
             // if present, the header is where you move the DIV from:
-            document.getElementById("cmd-container-header").onmousedown = dragMouseDown;
+            children[1].onmousedown = dragMouseDown;
         } else {
             // otherwise, move the DIV from anywhere inside the DIV:
             elmnt.onmousedown = dragMouseDown;
